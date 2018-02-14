@@ -1,98 +1,51 @@
 var user;
 var computer;
 var winner;
-var user_wins = 0; 
-var computer_wins; 
+var choices = document.getElementsByClassName('choice')
+var rps = ['Rock', 'Paper', 'Scissors']
 
 function startGame(e) {
   user = e.target.id
-  var userChoice = document.getElementById('user_choice')
-  userChoice.innerHTML = 'You Chose: ' + user 
-  computerChoice();
-
-  var compChoice = document.getElementById('comp_choice')
-  compChoice.innerHTML = 'The computer chose ' + computer
-
-  winner = checkWin();
-  displayResults();
-  var outcome = document.getElementById('outcome')
-  outcome.innerHTML = 'Results: ' + winner
+  showUser()
+  computer = rps[Math.floor(Math.random() * rps.length)];
+  console.log(user)
+  showComp()
+  checkWin()
+  winner = checkWin()
+  console.log(winner)
+  var showOutcome = document.getElementById('outcome')
+  showOutcome.innerHTML = 'Results: ' + winner
+  console.log("you chose " + user + "\nThe computer chose " + computer + "\nThe winner is " + winner)
 }
 
-// function playLog() {
-//   user_wins = 
-// }
-
-
-function checkWin() {
-  if (user === "rock"){
-    if (computer === "scissors") {
-      return "you win";
-    } else if (computer === "paper") {
-      return "you lose"
-    } else {
-      return "it was a draw"
-    }
-  }
-
-  else if (user === "scissors") {
-    if (computer === "rock") {
-      return "you lose";
-    } else if (computer === "paper") {
-        return "you win";
-    } else {
-      return "it was a draw"
-    }
-  }
-
-  else if (user === "paper") {
-    if (computer === "rock") {
-      return "you win"
-    } else if (computer === "scissors") {
-      return "you lose"
-    } else {
-      return "It was a draw" 
-    }
-  }
-} 
-
-function win() {
-  return "You win!"
-  user_wins ++
-}
-
-function lose() {
-  return "You lose"
-  computer_wins ++ 
-}
-
-function draw() {
-  return "It was a draw"
-}
-
-function displayResults() {
-  console.log("you chose" + user + "\nThe computer chose" + computer + winner)
-}
-
-var choices = document.getElementsByClassName('choice')
-
-function computerChoice() {
-  var options = ['rock', 'paper', 'scissors']
-  computer = options[Math.floor(Math.random() * options.length)];
-  console.log(computer)
-}
 
 for (var i in choices) {
   try {
     choices[i].addEventListener('click', startGame)
   } catch (err) {
-    //First load
+    // To fix first error 
   }
 }
 
-var start = document.getElementById('start')
-start.addEventListener('click', function () {
-  start.className = "hide"
-  var game = document.getElementById('game')
-  game.className = 'main_container'
-});
+function showUser() {
+  var userChoice = document.getElementById('user_choice')
+  userChoice.innerHTML = 'You Chose ' + user
+}
+
+function showComp() {
+  var compChoice = document.getElementById('comp_choice')
+  compChoice.innerHTML = 'The computer chose ' + computer
+}
+
+function checkWin() {
+  if (user === computer) {
+    return "Tie"
+  } else if (user === "Paper" && computer === "Rock" || user === "Scissors" && computer === "Paper" || user === "Rock" && computer === "Scissors") {
+    return "You won!"
+  } else {
+    return "You lose"
+  }
+}
+
+var start = document.gitElementById('start')
+

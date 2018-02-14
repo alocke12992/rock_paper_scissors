@@ -1,52 +1,64 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rock Paper Scissors</title>
+  <title>RPS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/main.css">
-  
+  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
+
 <body>
-  <div class="main_container"> 
+  <header>
+
+    <!-- Nav bar - keeps track of user score -->
+    <nav>
+      <ul>
+        <li>Total Wins</li>
+        <li>Computer Wins</li>
+        <li>Win Percentage</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Welcome Screen -->
+
+  <section>
     <div>
-      <div class="container">
-        <h1>Welcome to RPS</h1>
-      </div>
-      <div class="container">
-        <button id="start">Start Game</button>
-      </div>
+      <h1>Welcome to RPS</h1>
     </div>
-  <!-- Output section -->
-    <div id="game" class="main_container hide" >
-      <div class='container'>
-        <h1>Please Choose your weapon</h1>
-      </div>
-      <div class='container'>
-        <img id="rock" class="img choice" src="images/rock1.png">
-        <img id="paper" class="img choice" src="images/Printing-Paper-icon.png">
-        <img id="scissors" class="img choice" src="images/scissors.png">
-      </div>
+    <div>
+      <button class='start'>Start Game</button>
     </div>
-<!-- Output section --> 
+  </section>
 
-    <div class='main_container'> 
-      <div class='container'>
-        <h1>Output</h1>
-      </div>
-      <div id= "user_choice">
-        Your choice
-      </div>
-      <div id = "comp_choice">
-        Computer Choice 
-      </div>
-      <div id="outcome"> 
-        Outcome
-      </div>
-    </div>
+  <!-- Choose your item -->
 
-  </div>
+  <section>
+    <div>
+      <h2>Choose your Weapon</h2>
+    </div>
+    <div class='center'>
+      <img class='img choice' id='Rock' src='images/rock1.png' alt='rock'>
+      <img class='img choice' id='Paper' src='images/Printing-Paper-icon.png' alt='paper'>
+      <img class='img choice' id='Scissors' src='images/scissors.png' alt='scissors'>
+    </div>
+  </section>
+
+  <!-- Individual Game outcomes -->
+  <section>
+    <div>
+      <h2>Game Results</h2>
+    </div>
+    <div>
+      <h3 id='user_choice'>You Chose</h3>
+      <h3 id='comp_choice'>The Computer Chose</h3>
+      <h3 id='outcome'>Outcome</h3>
+    </div>
+  </section>
+
   <script src="js/main.js"></script>
 </body>
+
 </html>
