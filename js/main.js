@@ -1,6 +1,8 @@
 var user;
 var computer;
 var winner;
+var user_wins = 0; 
+var computer_wins; 
 
 function startGame(e) {
   user = e.target.id
@@ -17,34 +19,56 @@ function startGame(e) {
   outcome.innerHTML = 'Results: ' + winner
 }
 
+// function playLog() {
+//   user_wins = 
+// }
+
+
 function checkWin() {
   if (user === "rock"){
     if (computer === "scissors") {
-      return "you win"
+      return "you win";
+    } else if (computer === "paper") {
+      return "you lose"
     } else {
-      (computer === "paper")
-    return "you lose"
+      return "it was a draw"
     }
   }
+
   else if (user === "scissors") {
     if (computer === "rock") {
       return "you lose";
-    } else {
-      if (computer === "paper") {
+    } else if (computer === "paper") {
         return "you win";
-      }
+    } else {
+      return "it was a draw"
     }
   }
+
   else if (user === "paper") {
     if (computer === "rock") {
       return "you win"
-    } else {
-      (computer === "scissors")
+    } else if (computer === "scissors") {
       return "you lose"
+    } else {
+      return "It was a draw" 
     }
   }
 } 
 
+function win() {
+  return "You win!"
+  user_wins ++
+}
+
+function lose() {
+  return "You lose"
+  computer_wins ++ 
+}
+
+function draw() {
+  return "It was a draw"
+}
 
 function displayResults() {
   console.log("you chose" + user + "\nThe computer chose" + computer + winner)
